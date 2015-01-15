@@ -1,6 +1,7 @@
 package com.bignerdrach.android.geoquiz;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,7 @@ public class CheatActivity extends ActionBarActivity {
     private boolean mAnswerIsTrue;
 
     private TextView mAnswerTextView;
+    private TextView mVersionTextView;
     private Button mShowAnswer;
     private boolean mIsAnswerShown;
 
@@ -40,6 +42,9 @@ public class CheatActivity extends ActionBarActivity {
         mAnswerIsTrue = getIntent().getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false);
 
         mAnswerTextView = (TextView) findViewById(R.id.answerTextView);
+
+        mVersionTextView = (TextView) findViewById(R.id.version_text_view);
+        mVersionTextView.setText("API LEVEL "+Integer.toString(Build.VERSION.SDK_INT));
 
         setAnswerShownResult(false);
 

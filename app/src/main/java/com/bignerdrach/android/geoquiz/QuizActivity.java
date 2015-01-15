@@ -1,6 +1,7 @@
 package com.bignerdrach.android.geoquiz;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +28,7 @@ public class QuizActivity extends ActionBarActivity {
     private ImageButton mPrevButton;
     private Button mCheatButton;
     private TextView mQuestionTextView;
+    private TextView mVersionTextView;
 
     private  TrueFalse[] mQuestionBank = new TrueFalse[]{
             new TrueFalse(R.string.question_oceans,true),
@@ -79,6 +81,10 @@ public class QuizActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate(Bundle) called");
         setContentView(R.layout.activity_quiz);
+
+        mVersionTextView = (TextView) findViewById(R.id.version_text_view);
+        mVersionTextView.setText("API LEVEL "+Integer.toString(Build.VERSION.SDK_INT));
+
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
         mQuestionTextView.setOnClickListener(new View.OnClickListener() {
